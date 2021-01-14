@@ -1,5 +1,5 @@
 # module-bundler
-A simple bundler
+A simple bundler thanks to this [video](https://www.youtube.com/watch?v=Gc9-7PBqOC8).
 
 
 
