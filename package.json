@@ -7,7 +7,7 @@
         "example": "example"
     },
     "scripts": {
-        "start": "node bundler.js | js-beautify"
+        "start": "node bundler.js"
     },
     "repository": {
         "type": "git",
