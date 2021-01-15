@@ -93,6 +93,19 @@ function bundle(graph) {
     return result;
 }
 
-const graph = createGraph("./example/entry.js");
-const result = bundle(graph);
-fs.writeFileSync(path.join(__dirname, './bundle.js'), result);
+(function() {
+    let entry = "./example/entry.js";
+    const entryArg = process.argv.indexOf('--entry');
+    console.log(process.argv);
+    if (entryArg) {
+        const entryIndex = entryArg + 1;
+        if (entryIndex >= process.argv.length) {
+            console.error("Specified --entry flag without an entry file.");
+            return;
+        }
+        entry = process.argv[entryIndex];
+    }
+    const graph = createGraph(entry);
+    const result = bundle(graph);
+    fs.writeFileSync(path.join(__dirname, './bundle.js'), result);
+})();
